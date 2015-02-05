@@ -5,17 +5,23 @@ require "colorize"
 
 @javascript = @javascript_array
 @ruby = @ruby_array
+@other = @other_array
 active = true
 
 def get_question(array, difficulty)
   potential_questions = []
-  array.each do |question|
-    if question[:difficulty] == difficulty
-      potential_questions.push(question)
+  if difficulty >= 1
+    array.each do |question|
+      if question[:difficulty] == difficulty
+        potential_questions.push(question)
+      end
     end
+    question = potential_questions.sample
+    question ? array.delete_at(array.index(question)) : question = false
+  else
+    question = array.sample
+    question ? array.delete_at(array.index(question)) : question = false
   end
-  question = potential_questions.sample
-  question ? array.delete_at(array.index(question)) : question = false
   question
 end
 
@@ -25,34 +31,43 @@ def get_array(topic, difficulty)
   elsif topic.downcase.match("r")
     q = get_question(@ruby, difficulty)
   else
+    q = get_question(@other, difficulty)
   end
   q
 end
 
+def get_color_line(color)
+  puts "----------------------------------------------------------------------".colorize( :background => color.to_sym)
+end
+
 
 while active
+  puts "There are #{@javascript.count} Javascript questions left".colorize(:blue)
+  puts "There are #{@ruby.count} Ruby questions left".colorize(:blue)
+  puts "There are #{@other.count} Other questions left".colorize(:blue)
+  get_color_line("light_green")
   puts "Please Pick a Topic (or enter q to quit)".colorize(:green)
+  puts "j = javascript, r = ruby/rails, o = other".colorize(:green)
   topic = gets.chomp
   if topic.downcase.match("q")
     active = false
   else
-    puts "Please pick a difficulty level 1-3".colorize(:green)
+    puts "Please pick a difficulty level 1-3 (input 0 for random)".colorize(:green)
     difficulty = gets.chomp.to_i
     info = get_array(topic, difficulty)
     if info
-      puts "----------------------------------------------------------------------".colorize( :background => :light_blue)
+      get_color_line("light_blue")
       puts " QUESTION: #{info[:question].colorize(:cyan)}"
-      puts "----------------------------------------------------------------------".colorize( :background => :light_blue)
-
+      get_color_line("light_blue")
       puts "*** Press enter when ready for answer ***".colorize( :background => :light_white)
       gets.chomp
-      puts "----------------------------------------------------------------------".colorize( :background => :light_yellow)
+      get_color_line("light_yellow")
       puts " ANSWER: #{info[:answer]}".colorize(:red)
-      puts "----------------------------------------------------------------------".colorize( :background => :light_yellow)
+      get_color_line("light_yellow")
     else
-      puts "----------------------------------------------------------------------".colorize( :background => :light_red)
+      get_color_line("light_red")
       puts "There are no more questions in this difficulty/topic".colorize(:white)
-      puts "----------------------------------------------------------------------".colorize( :background => :light_red)
+      get_color_line("light_red")
     end
   end
 end
