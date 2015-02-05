@@ -259,6 +259,36 @@ end
   question: "What is unit testing (in classical terms)? What is the primary technique when writing a test?",
   answer: "Unit testing, simply put, is testing methods -- the smallest unit in object-oriented programming. Strong candidates will argue that it allows a developer to flesh out their API before it's consumed by other systems in the application. The primary way to achieve this is to assert that the actual result of the method matches an expected result.",
   difficulty: 2
+},
+{
+  question: "Why Ruby on Rails?",
+  answer: "There are lot of advantages of using Ruby on Rails(ROR)
+  1. DRY Principal
+  2. Convention over Configuration
+  3. Gems and Plugins
+  4. Scaffolding
+  5. Pure OOP Concept",
+  difficulty: 2
+},
+{
+  question: "What is ORM in Rails?",
+  answer: "ORM tends for Object-Relationship-Model, it means that your Classes are mapped to table in the database, and Objects are directly mapped to the rows in the table.",
+  difficulty: 1
+},
+{
+  question: "What is Active record & What does it do?",
+  answer: "Active Record are like Object Relational Mapping(ORM), where classes are mapped to table and objects are mapped to colums in the table. There are many reasons why Active Record provides: Simplified configuration and default assumptions (Convention over Configuration). Associations among objects. Automated mapping b/w tables and classes and b/w columns and attributes. Data Validations. Callbacks Inheritance hierarchies. Direct manipulation of data as well as schema objects. Database abstraction through adapters. Logging support. Migration support.",
+  difficulty: 2
+},
+{
+  question: "What is the difference between include and extend?",
+  answer: "include makes the module’s methods available to the instance of a class, while extend makes these methods available to the class itself.",
+  difficulty: 1
+},
+{
+  question: "What is TDD and BDD?",
+  answer: "Test-Driven-Development and Behavior-Driven-Development",
+  difficulty: 1
 }
 # {
 #   question: "What does DOCTYPE mean?",
@@ -270,7 +300,11 @@ end
 #   answer: "The term DOCTYPE tells the browser which type of HTML is used on a webpage. In turn, the browsers use DOCTYPE to determine how to render a page. Failing to use DOCTYPE or using a wrong DOCTYPE may load your page in Quirks Mode",
 #   difficulty: 1
 # },
-
+# {
+#   question: "What does DOCTYPE mean?",
+#   answer: "The term DOCTYPE tells the browser which type of HTML is used on a webpage. In turn, the browsers use DOCTYPE to determine how to render a page. Failing to use DOCTYPE or using a wrong DOCTYPE may load your page in Quirks Mode",
+#   difficulty: 1
+# },
 ]
 
 @other_array = [
@@ -322,12 +356,17 @@ CONNECT: Primarily used to establish a network connection to a resource (usually
   question: "What is a Proc?",
   answer: "Procs, short for procedures, act similar to blocks, but can be saved as variables and reused. Think of them as blocks you can call over and over again on multiple arrays.",
   difficulty: 2
+},
+{
+  question: "What is agile development",
+  answer: "Agile methodology is anadaptaive methodology, its people oriented. Here are some of the other characteristices of the Agile methodology.
+  1. Delivery frequently.
+  2. Good ROI for client.
+  3. Test frequently.
+  4. Collaborative approach.
+  Agile methodology is on daily basis report. How much work we have completed on that day and how much work is still pending…it gives the clear picture but the req are not defined beforehanditself completely",
+  difficulty: 2
 }
-# {
-#   question: "What does DOCTYPE mean?",
-#   answer: "The term DOCTYPE tells the browser which type of HTML is used on a webpage. In turn, the browsers use DOCTYPE to determine how to render a page. Failing to use DOCTYPE or using a wrong DOCTYPE may load your page in Quirks Mode",
-#   difficulty: 1
-# },
 # {
 #   question: "What does DOCTYPE mean?",
 #   answer: "The term DOCTYPE tells the browser which type of HTML is used on a webpage. In turn, the browsers use DOCTYPE to determine how to render a page. Failing to use DOCTYPE or using a wrong DOCTYPE may load your page in Quirks Mode",
