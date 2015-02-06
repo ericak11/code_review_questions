@@ -7,6 +7,7 @@ require "colorize"
 @ruby = @ruby_array
 @other = @other_array
 active = true
+@all_arrays = [@javascript, @ruby, @other]
 
 def get_question(array, difficulty)
   potential_questions = []
@@ -30,10 +31,23 @@ def get_array(topic, difficulty)
     q = get_question(@javascript, difficulty)
   elsif topic.downcase.match("r")
     q = get_question(@ruby, difficulty)
+  elsif topic.downcase.match("x")
+    array = @all_arrays.sample
+    q = get_question(array, difficulty)
   else
     q = get_question(@other, difficulty)
   end
   q
+end
+
+def get_difficulty_name(difficulty)
+  if difficulty == 3
+    return "HARD"
+  elsif difficulty == 2
+    return "MEDIUM"
+  else
+    return "EASY"
+  end
 end
 
 def get_color_line(color)
@@ -47,7 +61,7 @@ while active
   puts "There are #{@other.count} Other questions left".colorize(:blue)
   get_color_line("light_green")
   puts "Please Pick a Topic (or enter q to quit)".colorize(:green)
-  puts "j = javascript, r = ruby/rails, o = other".colorize(:green)
+  puts "j = javascript, r = ruby/rails, o = other, x = random".colorize(:green)
   topic = gets.chomp
   if topic.downcase.match("q")
     active = false
@@ -57,7 +71,7 @@ while active
     info = get_array(topic, difficulty)
     if info
       get_color_line("light_blue")
-      puts " QUESTION: #{info[:question].colorize(:cyan)}"
+      puts " #{get_difficulty_name(info[:difficulty])} QUESTION: #{info[:question].colorize(:cyan)}"
       get_color_line("light_blue")
       puts "*** Press enter when ready for answer ***".colorize( :background => :light_white)
       gets.chomp
