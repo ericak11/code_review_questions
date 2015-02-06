@@ -71,7 +71,7 @@ while active
     info = get_array(topic, difficulty)
     if info
       get_color_line("light_blue")
-      puts " #{get_difficulty_name(info[:difficulty])} QUESTION: #{info[:question].colorize(:cyan)}"
+      puts " #{get_difficulty_name(info[:difficulty])} #{info[:topic]} QUESTION: #{info[:question].colorize(:cyan)}"
       get_color_line("light_blue")
       puts "*** Press enter when ready for answer ***".colorize( :background => :light_white)
       gets.chomp
