@@ -2,6 +2,7 @@
 A Ruby app that allows for practice answering interview questions.
 
 ## To Use
+  - Fork this Repo
   - run 'ruby ask.rb' in the command line
   - Input which kind of question you would like
   - Select difficulty level
