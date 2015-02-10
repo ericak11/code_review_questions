@@ -1,5 +1,4 @@
 require "./questions"
-require "pry"
 require "colorize"
 
 
