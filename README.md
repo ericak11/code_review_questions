@@ -2,8 +2,8 @@
 A Ruby app that allows for practice answering interview questions.
 
 ## To Use
-  - gem install colorize
   - Fork this Repo
+  - gem install colorize
   - run 'ruby ask.rb' in the command line
   - Input which kind of question you would like
   - Select difficulty level
